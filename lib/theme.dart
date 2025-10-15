@@ -16,9 +16,52 @@ ThemeData getAppThemeData(ColorScheme colorScheme) {
   return ThemeData().copyWith(
     colorScheme: colorScheme,
     scaffoldBackgroundColor: colorScheme.surface,
-    textTheme: GoogleFonts.poppinsTextTheme().apply(
-      bodyColor: colorScheme.onSurface,
-      displayColor: colorScheme.onSurface,
+    textTheme: TextTheme(
+      titleLarge: GoogleFonts.poppins(
+        fontSize: 28,
+        fontWeight: FontWeight.bold,
+        color: colorScheme.onSurface,
+      ),
+      titleMedium: GoogleFonts.poppins(
+        fontSize: 20,
+        fontWeight: FontWeight.w600,
+        color: colorScheme.onSurface,
+      ),
+      titleSmall: GoogleFonts.poppins(
+        fontSize: 16,
+        fontWeight: FontWeight.w500,
+        color: colorScheme.onSurface,
+      ),
+      bodyLarge: GoogleFonts.poppins(
+        fontSize: 16,
+        fontWeight: FontWeight.w400,
+        color: colorScheme.onSurface,
+      ),
+      bodyMedium: GoogleFonts.poppins(
+        fontSize: 14,
+        fontWeight: FontWeight.w400,
+        color: colorScheme.onSurface,
+      ),
+      bodySmall: GoogleFonts.poppins(
+        fontSize: 12,
+        fontWeight: FontWeight.w400,
+        color: colorScheme.onSurface,
+      ),
+      labelLarge: GoogleFonts.poppins(
+        fontSize: 14,
+        fontWeight: FontWeight.w500,
+        color: colorScheme.onSurface,
+      ),
+      labelMedium: GoogleFonts.poppins(
+        fontSize: 12,
+        fontWeight: FontWeight.w500,
+        color: colorScheme.onSurface,
+      ),
+      labelSmall: GoogleFonts.poppins(
+        fontSize: 10,
+        fontWeight: FontWeight.w500,
+        color: colorScheme.onSurface,
+      ),
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
