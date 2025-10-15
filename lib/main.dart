@@ -1,11 +1,13 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:go_router/go_router.dart';
 import 'firebase_options.dart';
 
-import 'package:blk_app/screens/error_screen.dart';
-import 'package:blk_app/screens/welcome_screen.dart';
 import 'package:blk_app/theme.dart';
+import 'package:blk_app/screens/error_screen.dart';
+import 'package:blk_app/screens/auth_welcome_screen.dart';
+import 'package:blk_app/screens/home_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,8 +20,18 @@ class BlkApp extends StatelessWidget {
 
   // Route configuration using GoRouter
   final _router = GoRouter(
-    initialLocation: "/",
-    routes: [GoRoute(path: "/", builder: (ctx, state) => WelcomeScreen())],
+    initialLocation: "/auth",
+    routes: [
+      GoRoute(path: "/", builder: (ctx, state) => const HomeScreen()),
+      GoRoute(path: "/auth", builder: (ctx, state) => AuthWelcomeScreen()),
+    ],
+    redirect: (context, state) {
+      final isLoggedIn = FirebaseAuth.instance.currentUser != null;
+      if (!isLoggedIn) {
+        return "/auth";
+      }
+      return "/";
+    },
     errorBuilder: (ctx, state) => const ErrorScreen(),
   );
 

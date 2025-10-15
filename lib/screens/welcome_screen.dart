@@ -54,13 +54,11 @@ class WelcomeScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 32),
                     ElevatedButton(
-                      onPressed: () {
-                        // Navigate to the next screen or perform an action
-                      },
+                      onPressed: () {},
                       style: ElevatedButton.styleFrom(
                         minimumSize: Size(double.infinity, 50),
                       ),
-                      child: const Text("Login"),
+                      child: const Text("Slide to Continue >>>"),
                     ),
                   ],
                 ),
