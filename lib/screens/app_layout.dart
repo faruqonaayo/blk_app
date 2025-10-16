@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:blk_app/widgets/add_options.dart';
 import 'package:blk_app/screens/home_screen.dart';
 import 'package:blk_app/widgets/app_mode_button.dart';
+import 'package:go_router/go_router.dart';
 
 class AppLayout extends StatefulWidget {
   const AppLayout({super.key, this.initialPage = 0});
@@ -42,8 +43,12 @@ class _AppLayoutState extends State<AppLayout> {
         actions: [
           AppModeButton(),
           IconButton(
-            onPressed: () {
-              FirebaseAuth.instance.signOut();
+            onPressed: () async {
+              await FirebaseAuth.instance.signOut();
+              if (!context.mounted) {
+                return;
+              }
+              context.go("/auth");
             },
             icon: Icon(Icons.logout),
           ),
