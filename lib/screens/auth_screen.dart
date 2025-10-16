@@ -54,7 +54,7 @@ class _AuthScreenState extends State<AuthScreen>
         if (!mounted) {
           return;
         }
-        context.go("/");
+        context.go("/app");
       } on FirebaseAuthException catch (e) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
